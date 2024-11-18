@@ -8,13 +8,14 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: ""
-    http:
-      paths:
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-          name: webhook-receiver
-          port:
-            number: 9292 
+    - host: ""  # Set this to your actual hostname if needed, else leave empty
+      http:
+        paths:
+          - path: "/"  # Define the path that should be routed
+            pathType: Prefix
+            backend:
+              service:
+                name: webhook-receiver  # This must match the service name
+                port:
+                  number: 9292  # Ensure this matches the service's target port
+
